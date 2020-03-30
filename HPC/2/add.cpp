@@ -1,0 +1,54 @@
+#include<iostream>
+#include<stdlib.h>
+#include<omp.h>
+
+#define MAX 3
+using namespace std;
+
+int main()
+{
+	int a[MAX],b[MAX],c[MAX];
+	#pragma omp parallel for	
+
+			for(int i=0;i<MAX;i++)
+			      {
+			        a[i]=rand()%10;
+			               
+			         }
+			         cout<<"\n1st Vec:\n";
+			for(int i=0;i<MAX;i++)
+			        {
+			        cout<<a[i]<<"\t";
+			               
+			         }
+			         
+			  #pragma omp parallel for       
+			 for(int i=0;i<MAX;i++)
+			 
+			        {
+			     
+			                b[i]=rand()%10;
+			         }     
+			         
+			         cout<<"\n2 vector\n";
+			for(int i=0;i<MAX;i++){
+			
+			        cout<<b[i]<<"\t";
+			               
+			         
+			         cout<<"\n";      
+			}
+			#pragma omp parallel for
+			for(int i=0;i<MAX;i++)
+			{       c[i]=0; 
+			          c[i]=b[i]+a[i];
+		             
+			         }
+			         cout<<"\nAddition IS:\n";
+			for(int i=0;i<MAX;i++)
+			{ 
+			       cout <<c[i]<<"\t";
+			         cout<<"\n";
+			         }
+		
+}
